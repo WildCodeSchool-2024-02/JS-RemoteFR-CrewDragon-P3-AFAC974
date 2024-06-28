@@ -7,8 +7,10 @@ const router = express.Router();
 /* ************************************************************************* */
 
 const itemsRouter = require("./items/router");
+const authRouter = require("./auth/router");
 
 router.use("/items", itemsRouter);
+router.use("/auth", authRouter);
 
 /* ************************************************************************* */
 
