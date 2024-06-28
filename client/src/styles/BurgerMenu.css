@@ -1,0 +1,53 @@
+.burger-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2; /* Ensure the icon is above the menu */
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+.bm-burger-bars {
+  background-color: #6f678d;
+  position: fixed;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-menu {
+  background-color: #6f678d;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  width: 100%;
+}
+
+.bm-item-list {
+  padding: 0.8em;
+}
+
+.bm-item {
+  display: inline-block;
+  color: #d1d1d1;
+  margin-bottom: 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: white;
+}
+
+/* Styles pour les petits écrans */
+@media (min-width: 767px) {
+  .bm-burger-bars {
+    display: none;
+  }
+}

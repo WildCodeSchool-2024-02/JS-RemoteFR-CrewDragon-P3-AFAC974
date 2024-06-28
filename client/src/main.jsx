@@ -1,21 +1,42 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import Home from "./pages/Home";
+import Galerie from "./pages/Galerie";
+import Artiste from "./pages/Artiste";
+import Connexion from "./pages/Connexion";
 
 import App from "./App";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-]);
+function Main() {
+  const router = createBrowserRouter([
+    {
+      element: <App />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/Artiste",
+          element: <Artiste />,
+        },
+        {
+          path: "/Galerie",
+          element: <Galerie />,
+        },
+        {
+          path: "/Connexion",
+          element: <Connexion />,
+        },
+      ],
+    },
+  ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
+}
 
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<Main />);

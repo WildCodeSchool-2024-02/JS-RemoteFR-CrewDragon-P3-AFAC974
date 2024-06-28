@@ -33,5 +33,4 @@ CREATE TABLE artwork (
     user_id INT UNSIGNED,
     FOREIGN KEY (category_id) REFERENCES category(id),
     FOREIGN KEY (user_id) REFERENCES user(id)
-);
 
