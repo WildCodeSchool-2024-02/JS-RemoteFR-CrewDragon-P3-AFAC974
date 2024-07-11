@@ -1,19 +1,26 @@
-import { Outlet } from "react-router-dom";
-import "./styles/App.css";
+import { Routes, Route } from "react-router-dom";
+import BurgerMenu from "./components/BurgerMenu";
+import Home from "./pages/Home";
+import Galerie from "./pages/Galerie";
+import Inscription from "./pages/Inscription";
+import Connexion from "./pages/Connexion";
+import Artiste from "./pages/Artiste";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import BurgerMenu from "./components/BurgerMenu";
 
 function App() {
   return (
     <>
-      {" "}
       <BurgerMenu />
-      <main className="container">
-        <Header />
-        <Outlet />
-        <Footer />
-      </main>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Galerie" element={<Galerie />} />
+        <Route path="/Artiste" element={<Artiste />} />
+        <Route path="/register" element={<Inscription />} />
+        <Route path="/login" element={<Connexion />} />
+      </Routes>
+      <Footer />
     </>
   );
 }

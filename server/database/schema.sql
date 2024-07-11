@@ -1,3 +1,4 @@
+-- SQLBook: Code
 CREATE TABLE role (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL
@@ -33,4 +34,4 @@ CREATE TABLE artwork (
     user_id INT UNSIGNED,
     FOREIGN KEY (category_id) REFERENCES category(id),
     FOREIGN KEY (user_id) REFERENCES user(id)
-
+);
