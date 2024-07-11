@@ -1,81 +1,101 @@
 // src/components/Register.jsx
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 import logo2 from "../assets/logoInsc.png";
 import "../styles/Inscription.css";
 
 function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [user, setUser] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    avatar: "https://avatar.iran.liara.run/public",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post("http://localhost:3001/api/register", {
-        email,
-        password,
-        confirmPassword,
-      });
-
-      setSuccess(response.data.msg);
-      setError("");
-    } catch (errorTry) {
-      setError(errorTry.response.data.errors[0].msg);
-      setSuccess("");
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/register`,
+        user
+      );
+      toast.success(response.data.msg);
+    } catch (error) {
+      toast.error(error.response.data.error);
+      console.error(error.response.data.error);
     }
   };
 
   return (
     <div className="Insc-container">
       <div className="logo1">
-        <div className="insc-form">
-          {" "}
-          <h2>Inscription</h2>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {success && <p style={{ color: "green" }}>{success}</p>}
-        </div>
         <img src={logo2} className="logo_Insc" alt="logo_insc" />
       </div>
       <div>
         <form onSubmit={handleSubmit} className="form-insc">
           <div>
+            <label htmlFor="firstname">Prénom</label>
             <input
-              placeholder="E-mail"
+              onChange={handleChange}
+              type="text"
+              name="firstname"
+              value={user.firstname}
+              placeholder="Votre prénom"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastname">Nom</label>
+            <input
+              onChange={handleChange}
+              type="text"
+              name="lastname"
+              value={user.lastname}
+              placeholder="Votre nom"
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              onChange={handleChange}
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              name="email"
+              value={user.email}
+              placeholder="Votre email"
             />
           </div>
           <div>
+            <label htmlFor="password">Mot de passe</label>
             <input
-              placeholder="password"
+              onChange={handleChange}
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              name="password"
+              value={user.password}
+              placeholder="********"
             />
           </div>
           <div>
-            <input
-              placeholder="Confirme-password"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
+            <label htmlFor="description">Une courte description</label>
+            <textarea
+              name="description"
+              id="description"
+              onChange={handleChange}
             />
           </div>
+
           <button type="submit">Inscription</button>
           <p>
             Déjà un compte? <Link to="/Login">Connexion</Link>
           </p>
         </form>
-        {error && <p>{error}</p>}
       </div>
     </div>
   );
