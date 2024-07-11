@@ -1,7 +1,9 @@
 function Artiste() {
   return (
-    <div>
-      <h1>bonjour</h1>
+    <div className="App">
+      <header className="App-header">
+        <h1>Art Gallery</h1>
+      </header>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import "../styles/Home.css";
 import peinture from "../assets/peinture.png";
 
-
 function Home() {
   return (
     <main className="home">

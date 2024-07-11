@@ -9,19 +9,23 @@ function Header() {
         <img src={logo} className="logo" alt="logo" />
       </div>
       <div className="right">
-        <nav className="menu">
+        <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
+              <Link to="/Galerie">Galerie</Link>
+            </li>
+
+            <li>
               <Link to="/Artiste">Artiste</Link>
             </li>
             <li>
-              <Link to="/Galerie">Galerie</Link>
+              <Link to="/login">Connexion</Link>
             </li>
-            <li className="connex">
-              <Link to="/Connexion">Connexion</Link>
+            <li>
+              <Link to="/register">Inscription</Link>
             </li>
           </ul>
         </nav>
