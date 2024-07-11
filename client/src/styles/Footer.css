@@ -1,0 +1,51 @@
+.footer {
+  width: 100%;
+  background: #d9d9d9;
+  color: black;
+  margin: auto;
+  padding: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 19vh;
+}
+.footer-content {
+  font-family: "Quicksand", sans-serif;
+  height: 100%;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.svgg {
+  width: 100%;
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .footer-content p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Ordinateur*/
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .footer {
+    height: 19vh;
+    margin-bottom: 0;
+  }
+
+  .logo {
+    display: block;
+  }
+}
+
+/*Grand écran*/
+
+@media screen and (min-width: 1201px) {
+  .footer {
+    height: 19vh;
+    margin-bottom: 0;
+  }
+}
