@@ -7,20 +7,20 @@ const router = express.Router();
 /* ************************************************************************* */
 
 const itemsRouter = require("./items/router");
-const authRouter = require("./auth/router");
 
 router.use("/items", itemsRouter);
-router.use("/auth", authRouter);
 
 /**
  * Mes routes
  */
 
+const authRouter = require("./auth/router");
 const artworkRouter = require("./artwork/router");
 const categoryRouter = require("./category/router");
 const rolesRouter = require("./roles/router");
 const userRouter = require("./user/router");
 
+router.use("/auth", authRouter);
 router.use("/artwork", artworkRouter);
 router.use("/category", categoryRouter);
 router.use("/roles", rolesRouter);
