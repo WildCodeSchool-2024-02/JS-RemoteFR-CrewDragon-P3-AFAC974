@@ -1,8 +1,5 @@
-// UserComponent.js
 import axios from "axios";
 import { useState, useEffect } from "react";
-
-
 
 function UserComponent() {
   const [users, setUsers] = useState([]);
@@ -14,9 +11,9 @@ function UserComponent() {
   const fetchUsers = async () => {
     try {
       const response = await axios.get("/api/users");
-      setUsers(response.data); // Assurez-vous que response.data est un tableau valide
+      setUsers(response.data);
     } catch (error) {
-      setUsers([]); // Réinitialisez users en cas d'erreur pour éviter les problèmes de type
+      setUsers([]);
     }
   };
 
@@ -32,7 +29,6 @@ function UserComponent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     
       fetchUsers(); // Re-fetch users after creation
       setNewUser({
         firstname: "",

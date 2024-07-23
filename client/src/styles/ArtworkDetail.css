@@ -1,0 +1,70 @@
+.artwork-detail button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 2rem;
+  border-radius: 10px;
+  border: none;
+}
+.artwork-detail {
+  margin-bottom: 6rem;
+  margin-left: 3rem;
+}
+.artwork-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork-content img {
+  max-width: 45%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.artwork-info {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+  width: 70%;
+}
+.close-bouton {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border: none;
+  background-color: #6f678d;
+  color: white;
+  cursor: pointer;
+}
+.artwork-info h1 {
+  font-size: 2em;
+}
+
+.artwork-info h2 {
+  font-size: 1.5em;
+}
+
+.artwork-info p {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .artwork-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .artwork-content img {
+    max-width: 60%;
+  }
+}

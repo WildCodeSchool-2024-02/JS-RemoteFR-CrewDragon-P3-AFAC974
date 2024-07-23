@@ -1,0 +1,67 @@
+.App {
+  padding: 20px;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category-section {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.artwork-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.art-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+.title-galerie {
+  font-family: "Georgia", serif;
+}
+.art-card img {
+  width: 20vw;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.art-card.clicked {
+  filter: brightness(50%);
+  transform: scale(1.05);
+}
+.art-card:hover {
+  filter: brightness(55%);
+  transform: scale(1.05);
+}
+
+h3 {
+  text-align: center;
+}
+
+.artworks {
+  display: flex;
+  overflow-x: auto;
+}

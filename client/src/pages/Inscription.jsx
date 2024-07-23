@@ -1,9 +1,7 @@
-// src/components/Register.jsx
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
 import logo2 from "../assets/logoInsc.png";
 import "../styles/Inscription.css";
 
@@ -43,8 +41,9 @@ function Register() {
       <div>
         <form onSubmit={handleSubmit} className="form-insc">
           <div>
-            <label htmlFor="firstname">Prénom</label>
+            <label htmlFor="lastname">Prénom</label>
             <input
+              className="insc_flex"
               onChange={handleChange}
               type="text"
               name="firstname"
@@ -55,6 +54,7 @@ function Register() {
           <div>
             <label htmlFor="lastname">Nom</label>
             <input
+              className="insc_flex"
               onChange={handleChange}
               type="text"
               name="lastname"
@@ -65,6 +65,7 @@ function Register() {
           <div>
             <label htmlFor="email">Email</label>
             <input
+              className="insc_flex"
               onChange={handleChange}
               type="email"
               name="email"
@@ -75,6 +76,7 @@ function Register() {
           <div>
             <label htmlFor="password">Mot de passe</label>
             <input
+              className="insc_flex"
               onChange={handleChange}
               type="password"
               name="password"
@@ -85,15 +87,21 @@ function Register() {
           <div>
             <label htmlFor="description">Une courte description</label>
             <textarea
+              className="insc_flex"
               name="description"
               id="description"
               onChange={handleChange}
             />
           </div>
 
-          <button type="submit">Inscription</button>
+          <button type="submit" className="btn-insc">
+            Inscription
+          </button>
           <p>
-            Déjà un compte? <Link to="/Login">Connexion</Link>
+            Déjà un compte?{" "}
+            <Link className="login-insc" to="/Login">
+              se connecter
+            </Link>
           </p>
         </form>
       </div>

@@ -6,7 +6,9 @@ function Header() {
   return (
     <header className="header">
       <div className="section2">
-        <img src={logo} className="logo" alt="logo" />
+        <Link to="/" className="video-background">
+          <img src={logo} className="logo" alt="logo" />
+        </Link>
       </div>
       <div className="right">
         <nav>
