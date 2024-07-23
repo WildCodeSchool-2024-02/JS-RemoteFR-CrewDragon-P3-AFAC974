@@ -42,15 +42,15 @@ class ArtworkRepository extends AbstractRepository {
 
   // The U of CRUD - Update operation
   async update({
-      id,
-      title,
-      size,
-      years,
-      image_url,
-      description,
-      category_id,
-      user_id,
-    }) {
+    id,
+    title,
+    size,
+    years,
+    image_url,
+    description,
+    category_id,
+    user_id,
+  }) {
     const [result] = await this.database.query(
       `UPDATE ${this.table} SET title = ?, size_artwork = ?, years = ?, image_url = ?, description = ?, category_id = ?, user_id = ? WHERE id = ?`,
       [

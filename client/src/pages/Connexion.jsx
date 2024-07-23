@@ -1,77 +1,78 @@
-// src/components/Login.js
-// src/components/Login.jsx
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "../styles/Connexion.css";
+
 import axios from "axios";
 import logo2 from "../assets/logoInsc.png";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+    avatar: "https://avatar.iran.liara.run/public",
+  });
+
+  const handleChange = (e) => {
+    setLogin({ ...login, [e.target.email]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post("http://localhost:3001/api/login", {
-        email,
-        password,
-      });
-
-      setSuccess(response.data.msg);
-      setError("");
-      localStorage.setItem("token", response.data.token);
-    } catch {
-      setError(error.response.data.errors[0].msg);
-      setSuccess("");
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        login
+      );
+      toast.success(response.data.msg);
+    } catch (error) {
+      toast.error(error.response.data.error);
+      console.error(error.response.data.error);
     }
   };
 
   return (
-    <>
-      <h2>Connexion</h2>
-      <div className="login-container">
-        <div className="login-image">
-          <img src={logo2} alt="Login" />
-        </div>
-        <div className="login-form">
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {success && <p style={{ color: "green" }}>{success}</p>}
-          <form onSubmit={handleSubmit}>
-            <div>
-              <input
-                placeholder="E-mail"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <input
-                placeholder="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button className="insc-btn" type="submit">
-              Connexion
-            </button>
-          </form>
-
-          <div>
-            <p>
-              Pas de compte? <Link to="/register">Inscrivez-vous</Link>
-            </p>
-          </div>
-        </div>
+    <div className="conex-container">
+      <div className="logo1">
+        <img src={logo2} className="logo_Insc" alt="logo_insc" />
       </div>
-    </>
+      <div>
+        <form onSubmit={handleSubmit} className="form-conex">
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              className="conex_flex"
+              onChange={handleChange}
+              type="email"
+              name="email"
+              value={login.email}
+              placeholder="Votre email"
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Mot de passe</label>
+            <input
+              className="conex_flex"
+              onChange={handleChange}
+              type="password"
+              name="password"
+              value={login.password}
+              placeholder="********"
+            />
+          </div>
+
+          <button type="submit" className="btn-conex">
+            Connexion
+          </button>
+          <p>
+            Pas de compte?{" "}
+            <Link className="login-conex" to="/register">
+              s'inscrire
+            </Link>
+          </p>
+        </form>
+      </div>
+    </div>
   );
 }
 

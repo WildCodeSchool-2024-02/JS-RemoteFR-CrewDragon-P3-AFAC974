@@ -3,7 +3,6 @@ import { slide as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
 import "../styles/BurgerMenu.css";
 
-
 function BurgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,11 +11,7 @@ function BurgerMenu() {
   };
 
   return (
-    <Menu
-      right
-      isOpen={isOpen}
-      onStateChange={(state) => setIsOpen(state.isOpen)}
-    >
+    <Menu isOpen={isOpen} onStateChange={(state) => setIsOpen(state.isOpen)}>
       <Link className="menu-item" to="/" onClick={handleMenuClose}>
         Home
       </Link>
@@ -26,8 +21,11 @@ function BurgerMenu() {
       <Link className="menu-item" to="/Galerie" onClick={handleMenuClose}>
         Galerie
       </Link>
-      <Link className="menu-item" to="/Connexion" onClick={handleMenuClose}>
+      <Link className="menu-item" to="/login" onClick={handleMenuClose}>
         Connexion
+      </Link>
+      <Link className="menu-item" to="/register" onClick={handleMenuClose}>
+        Inscription
       </Link>
     </Menu>
   );
