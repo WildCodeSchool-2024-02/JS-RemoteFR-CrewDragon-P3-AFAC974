@@ -1,0 +1,38 @@
+.cat-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem;
+  gap: 5rem;
+}
+
+.img-cat {
+  width: 45%;
+  height: 55vh;
+  border-radius: 10px;
+  border: solid 4px #6f678d;
+}
+
+.btn-cat {
+  margin: 1rem;
+  border: none;
+  border-radius: 10px;
+  border: none;
+  background-color: #6f678d;
+  color: white;
+  cursor: pointer;
+  height: 5vh;
+  width: 10vw;
+}
+
+@media (max-width: 900px) {
+  .cat-flex {
+    flex-direction: column;
+  }
+  .btn-cat {
+    width: 100px;
+    margin-left: 5rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
