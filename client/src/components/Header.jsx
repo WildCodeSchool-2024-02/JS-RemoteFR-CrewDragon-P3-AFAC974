@@ -6,7 +6,9 @@ function Header() {
   return (
     <header className="header">
       <div className="section2">
-        <img src={logo} className="logo" alt="logo" />
+        <Link to="/" className="video-background">
+          <img src={logo} className="logo" alt="logo" />
+        </Link>
       </div>
       <div className="right">
         <nav>
@@ -15,11 +17,11 @@ function Header() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/Galerie">Galerie</Link>
+              <Link to="/galerie">Galerie</Link>
             </li>
 
             <li>
-              <Link to="/Artiste">Artiste</Link>
+              <Link to="/artiste">Artiste</Link>
             </li>
             <li>
               <Link to="/login">Connexion</Link>

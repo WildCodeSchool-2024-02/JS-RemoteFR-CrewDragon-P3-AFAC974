@@ -1,0 +1,63 @@
+.conex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.form-conex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_Insc {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+label {
+  display: flex;
+}
+
+.conex_flex {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #6f678d;
+}
+.btn-conex {
+  background-color: #6f678d;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+.login-conex {
+  color: #6f678d;
+}
+@media (max-width: 912px) {
+  .conex-container {
+    flex-direction: column; /* Aligner verticalement les éléments sur les petits écrans */
+    gap: 1rem; /* Réduire l'espacement entre les éléments */
+  }
+
+  .form-conex {
+    margin-top: 2rem; /* Réduire la marge en haut du formulaire */
+  }
+
+  .conex_flex {
+    width: 90%; /* Adapter la largeur du formulaire à la largeur de l'écran */
+    max-width: 400px; /* Limiter la largeur maximale du formulaire */
+  }
+  .logo_Insc {
+    max-width: 100%; /* L'image ne dépassera jamais la largeur de son conteneur */
+    height: auto;
+    margin: 1rem;
+  }
+}
