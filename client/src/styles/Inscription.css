@@ -34,7 +34,7 @@
   color: #6f678d;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
   .Insc-container {
     flex-direction: column; /* Aligner verticalement les éléments sur les petits écrans */
     gap: 1rem; /* Réduire l'espacement entre les éléments */

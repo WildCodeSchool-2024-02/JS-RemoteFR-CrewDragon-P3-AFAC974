@@ -1,20 +1,25 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Connexion.css";
 
 import axios from "axios";
 import logo2 from "../assets/logoInsc.png";
 
 function Login() {
+  const nav = useNavigate();
+  /**
+   * const [email, setEmail] = useState("");
+   * const [password, setPassword] = useState("");
+   */
+
   const [login, setLogin] = useState({
     email: "",
     password: "",
-    avatar: "https://avatar.iran.liara.run/public",
   });
 
   const handleChange = (e) => {
-    setLogin({ ...login, [e.target.email]: e.target.value });
+    setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -24,7 +29,11 @@ function Login() {
         `${import.meta.env.VITE_API_URL}/api/auth/login`,
         login
       );
-      toast.success(response.data.msg);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      toast.success(
+        `Bonjour ${response.data.user.firstname}, vous êtes bien connecté`
+      );
+      nav("/");
     } catch (error) {
       toast.error(error.response.data.error);
       console.error(error.response.data.error);
@@ -41,23 +50,23 @@ function Login() {
           <div>
             <label htmlFor="email">Email</label>
             <input
-              className="conex_flex"
-              onChange={handleChange}
+              className="insc_flex"
               type="email"
               name="email"
-              value={login.email}
               placeholder="Votre email"
+              onChange={handleChange}
+              value={login.email}
             />
           </div>
           <div>
             <label htmlFor="password">Mot de passe</label>
             <input
-              className="conex_flex"
-              onChange={handleChange}
+              className="insc_flex"
               type="password"
               name="password"
-              value={login.password}
               placeholder="********"
+              onChange={handleChange}
+              value={login.password}
             />
           </div>
 

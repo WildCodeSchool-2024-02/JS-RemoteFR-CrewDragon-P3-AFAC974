@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo2 from "../assets/logoInsc.png";
 import "../styles/Inscription.css";
 
 function Register() {
+  const nav = useNavigate();
+
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -27,6 +29,7 @@ function Register() {
         user
       );
       toast.success(response.data.msg);
+      nav("/login");
     } catch (error) {
       toast.error(error.response.data.error);
       console.error(error.response.data.error);

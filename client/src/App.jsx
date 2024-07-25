@@ -5,8 +5,10 @@ import Galerie from "./pages/Galerie";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import Artiste from "./pages/Artiste";
+import Category from "./pages/Category";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Artworks from "./pages/Artworks";
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Galerie" element={<Galerie />} />
-        <Route path="/Artiste" element={<Artiste />} />
+        <Route path="/artwork" element={<Artworks />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/galerie" element={<Galerie />} />
+        <Route path="/artiste" element={<Artiste />} />
         <Route path="/register" element={<Inscription />} />
         <Route path="/login" element={<Connexion />} />
       </Routes>
